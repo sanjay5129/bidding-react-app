@@ -1,0 +1,27 @@
+{
+  "name": "nestjs-docker-react-boilerplate",
+  "private": true,
+  "keywords": [
+    "react",
+    "nestjs",
+    "docker",
+    "typescript",
+    "lerna",
+    "monorepo",
+    "mongodb"
+  ],
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "scripts": {
+    "test": "lerna run test",
+    "diff": "lerna diff",
+    "clean": "lerna clean"
+  },
+  "devDependencies": {
+    "lerna": "^6.5.1",
+    "@nestjs/cli": "^9.0.0"
+  }
+}

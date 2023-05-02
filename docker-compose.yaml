@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  #MongoDB service
+  mongo_db:
+    container_name: mongo_db_1
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2719:27017
+    volumes:
+      - mongo_db:/data/db
+
+  #NestJS api-urls service
+  api_urls:
+    build: .
+    ports:
+      - 4000:12345
+    volumes:
+      # https://stackoverflow.com/questions/72891468/docker-failed-bcrypt-lib-node-exec-format-error
+      # https://medium.com/@kartikio/setup-node-ts-local-development-environment-with-docker-and-hot-reloading-922db9016119
+      # https://burnedikt.com/dockerized-node-development-and-mounting-node-volumes/
+      # https://stackoverflow.com/questions/29181032/add-a-volume-to-docker-but-exclude-a-sub-folder/37898591#37898591
+      - .:/usr/src/app
+      - exclude:/usr/src/app/node_modules/
+    environment:
+      PORT: ${PORT}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      MONGO_DB_URI: ${MONGO_DB_URI}
+
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
+  exclude:
