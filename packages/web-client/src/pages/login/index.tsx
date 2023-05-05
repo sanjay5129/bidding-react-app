@@ -9,12 +9,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useFormik } from "formik";
 import { loginSchema } from "schema";
-import {
-  ACCESS_TOK,
-  LOGIN_SUCESS_MESSAGE,
-  SUCESS_STATUS,
-  initialValuesLogin,
-} from "utils/constant";
+import { ACCESS_TOK, initialValuesLogin } from "utils/constant";
 import { MyFormData, TGenericType } from "utils/types";
 import { useNavigate } from "react-router-dom";
 import { FormControl } from "@mui/material";

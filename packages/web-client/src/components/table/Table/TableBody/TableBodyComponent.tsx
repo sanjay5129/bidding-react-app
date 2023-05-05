@@ -1,6 +1,11 @@
 import { Button, TableCell, TableRow } from "@mui/material";
 import { possibleColumneTypes } from "utils/constant";
-import { ICreateItem, ITableBody, IColumnData, TGenericType } from "utils/types";
+import {
+  ICreateItem,
+  ITableBody,
+  IColumnData,
+  TGenericType,
+} from "utils/types";
 import { useDispatch } from "react-redux";
 import { successState } from "redux/slices/bidItems.slice";
 

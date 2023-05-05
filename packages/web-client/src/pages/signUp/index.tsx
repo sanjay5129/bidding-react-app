@@ -10,22 +10,16 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { FormControl } from "@mui/material";
 import { useFormik } from "formik";
-import { enqueueSnackbar } from "notistack";
 import { signUpSchema } from "schema";
-import {
-  initialValuesSignup,
-  SUCESS_STATUS,
-  USER_CREATED_SUCESS,
-  BASE_FALLBACK_PATH,
-} from "utils/constant";
+import { initialValuesSignup, BASE_FALLBACK_PATH } from "utils/constant";
 import CustomTextField from "components/atoms/customTextfield";
-import { TGenericBlur } from "utils/types";
+import { TGenericBlur, TGenericType } from "utils/types";
 import { useDispatch } from "react-redux";
 import { signupRequest } from "redux/thunks/signup.thunk";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<TGenericType>();
 
   const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik<
     typeof initialValuesSignup

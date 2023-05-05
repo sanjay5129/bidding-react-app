@@ -39,7 +39,7 @@ const Dashboard = () => {
             id="start_price"
             name="start_price"
             label="Bid Price"
-            value={values?.start_price}
+            value={values?.start_price || ""}
             error={Boolean(values.start_price && errors.start_price)}
             onChange={handleChange}
             onBlur={handleBlur}
